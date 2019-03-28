@@ -1,5 +1,5 @@
 import java.text.*;
-import java.util.*;
+import java.util.Locale;
 
 /**
  * 
@@ -17,12 +17,12 @@ public class RegistratoreDiCassa
     /**
      * 
      * @param prezzoArticolo
-     * @return subtotale da pagare
+     * @return subtotale
      */
     public double subtotale(double prezzoArticolo)
     {
         prezzo += prezzoArticolo;
-        System.out.println("L'articolo n° "+i+" costa €"+prezzoArticolo+". Il tuo nuovo subtotale è €"+prezzo+".");
+        System.out.println("L'articolo n°"+i+" costa €"+prezzoArticolo+". Il tuo nuovo subtotale è €"+prezzo+".");
         i++;
         return prezzo;
     }
@@ -30,11 +30,13 @@ public class RegistratoreDiCassa
     /**
      * 
      * @param pagato
+     * @return cifra pagata
      */
-    public void pagamento(double pagato)
+    public double pagamento(double pagato)
     {
         this.pagato = pagato;
         System.out.println("Hai pagato €"+pagato+".");
+        return pagato;
     }
 
     /**
@@ -45,7 +47,7 @@ public class RegistratoreDiCassa
     {
         resto = pagato - prezzo;
         NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
-        DecimalFormat df = (DecimalFormat)nf;
+        DecimalFormat df = (DecimalFormat) nf;
         System.out.println("Il tuo resto è €"+df.format(resto)+".");
         return resto;
     }
