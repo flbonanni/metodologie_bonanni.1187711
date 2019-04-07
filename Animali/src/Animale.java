@@ -20,4 +20,8 @@ public abstract class Animale
     public int getNumeroDiZampe() { return zampe; }
 
     public Taglia getTaglia() { return taglia; }
+	public void becca() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -5,7 +5,7 @@
 
 public class TestAnimale
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws PinguinoSchiantatoException
     {
         Animale[] zoo = new Animale[8];
         zoo[0] = new Gatto();
@@ -22,5 +22,16 @@ public class TestAnimale
             zoo[i].emettiVerso();
             System.out.println(", ha "+zoo[i].getNumeroDiZampe()+" zampe ed è di taglia "+zoo[i].getTaglia()+".");
         }
+        Pinguino Pingu = new Pinguino();
+        Aquila SamEagle = new Aquila();
+        PesceVolante Pancake = new PesceVolante();
+        Gatto Felix = new Gatto();
+        Cane Nebbia = new Cane();
+        Uomo Leslie = new Uomo();
+        SamEagle.becca();
+        SamEagle.vola();
+        Pingu.becca();
+        Pingu.nuota();
+        Nebbia.fedeleA(Leslie);
     }
 }
