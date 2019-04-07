@@ -5,12 +5,13 @@
 
 public class PezzoSerp extends Pezzo
 {
-    private String[][] a = {{ "*", "_", "_" },
-                            { "*", "*", "_" },
-                            { "_", "*", "_" }};
+    private String[][] a = {{ "*", " ", " " },
+                            { "*", "*", " " },
+                            { " ", "*", " " }};
 
     public PezzoSerp()
     {
         setTetramino(a);
     }
 }
+

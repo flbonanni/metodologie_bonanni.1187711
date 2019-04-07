@@ -39,36 +39,82 @@ public class Tetris
                 switch (input)
                 {
                     case "a":
-                        if (p.getAscissa() - 1 >= 0 && controllaSeVuoto(p, input)) p.left();
+                        if (p.getAscissa() - 1 >= 0 /* && controllaSeVuoto(p, input) */) p.left();
                         break;
                     case "s":
-                        if (p.getOrdinata() + 3 <= 19 && controllaSeVuoto(p, input)) p.down();
+                        if (p.getOrdinata() + 3 <= 19)
+                        {
+                            if (controllaSeVuoto(p, input)) p.down();
+                            else
+                            {
+                                String[][] sezione = new String[6][11];
+                                for (int i = p.getOrdinata(); i < 6; i++)
+                                {
+                                    for (int j = p.getAscissa(); j < 11; j++)
+                                    {
+                                        sezione[i][j] = campo.getCampo()[i][j];
+                                    }
+                                }
+                                System.out.println("**************");
+                                for (int i = 0; i < 6; i++)
+                                {
+                                    for (int j = 0; j < 11; j++)
+                                    {
+                                        System.out.print(sezione[i][j]);
+                                    }
+                                    System.out.println();
+                                }
+                                System.out.println("**************");
+                            }
+                        }
                         break;
                     case "d":
-                        if (p.getAscissa() + 3 < 11 && controllaSeVuoto(p, input)) p.right();
+                        if (p.getAscissa() + 3 < 11 /* && controllaSeVuoto(p, input)*/) p.right();
                         break;
                     case "w":
                         if ((p.getAscissa() - 1 >= 0) && (p.getOrdinata() + 3 < 20) && (p.getAscissa() + 3 < 11)) p.rotate();
                         break;
                 }
-                if (p.getOrdinata() + 3 <= 19 && controllaSeVuoto(p, "s")) p.down();
+                if (p.getOrdinata() + 3 <= 19)
+                {
+                    if (controllaSeVuoto(p, "s")) p.down();
+                    else
+                    {
+                        String[][] sezione = new String[6][11];
+                        for (int i = p.getOrdinata(); i < 6; i++)
+                        {
+                            for (int j = p.getAscissa(); j < 11; j++)
+                            {
+                                sezione[i][j] = campo.getCampo()[i][j];
+                            }
+                        }
+                        System.out.println("**************");
+                        for (int i = 0; i < 6; i++)
+                        {
+                            for (int j = 0; j < 11; j++)
+                            {
+                                System.out.print(sezione[i][j]);
+                            }
+                            System.out.println();
+                        }
+                        System.out.println("**************");
+                    }
+                }
                 // per fare un restore dove cambia solo il pezzo spostato
                 campo = new CampoTetris(copia);
-                campo.inserisci(p.getOrdinata(), p.getAscissa(), p);
+                campo.inserisci(p.getAscissa(), p.getOrdinata(), p);
                 campo.stampa();
-                System.out.println("Arrivato è "+arrivato);
+                //System.out.println("Arrivato è "+arrivato);
                 if (!arrivato) discesa = p.getOrdinata()+3;
                 else { discesa = 20; }
-                System.out.println("La discesa è "+discesa);
+                //System.out.println("La discesa è "+discesa);
             }
             // calcola i punteggi
             if (campo.controlloLinea()) punti += 10;
         }
     }
 
-    /**
-     *  somministra i pezzi
-     */
+    // somministra i pezzi
     public void creaCopia()
     {
         copia = new CampoTetris(campo);
@@ -76,9 +122,7 @@ public class Tetris
         copia.stampa(); */
     }
 
-    /**
-     *  somministra i pezzi
-     */
+    // somministra i pezzi
     public void somministra()
     {
         creaCopia();
@@ -103,50 +147,46 @@ public class Tetris
         }
         p.setOrdinata(0);
         p.setAscissa(4);
-        campo.inserisci(0, 4, p);
+        campo.inserisci(4, 0, p);
         campo.stampa();
     }
 
-    /**
-     *  gestisce lo spazio libero
-     * @param p pezzo
-     * @param input
-     * @return se è vuoto o pieno
-     */
+    // gestisce lo spazio libero
     public boolean controllaSeVuoto(Pezzo p, String input)
     {
-        int x = p.getAscissa(); int y = p.getOrdinata();
+        int x = p.getAscissa();
+        int y = p.getOrdinata();
         boolean vuoto = true;
 
         switch (input)
         {
             case "a":
-                if (y-3 > 0)
+                if (x-3 > 0)
                 {
                     for (int i = 0; i < 3; i++)
                     {
                         for (int j = -3; j < 0; j++)
                         {
-                            if (campo.getCampo()[x + i][y + j] != " ")
+                            if (campo.getCampo()[y + i][x + j] == " ")
                             {
                                 vuoto = false;
-                                System.out.println("PDF9.A sin c'è qualcosa");
+                                System.out.println("A sin c'è qualcosa");
                             }
                         }
                     }
                 }
                 break;
             case "s":
-                if (y+2 < campo.getColonne())
+                if (y+5 < campo.getRighe())
                 {
                     for (int i = 3; i < 6; i++)
                     {
                         for (int j = 0; j < 3; j++)
                         {
-                            System.out.println("la x e la y del mio pezzo sono "+x+" "+y);
-                            System.out.println("vado ad analizzare "+(x+i)+" "+(y+j));
-                            System.out.println("Trovo: "+campo.getCampo()[x+i][y+j]);
-                            if (campo.getCampo()[y + j][x + i] != " ")
+                            //System.out.println("la y^ e la x> del mio pezzo sono " + y + " " + x);
+                            //System.out.println("vado ad analizzare " + (y + i) + " " + (x + j));
+                            //System.out.println("Trovo: " + (campo.getCampo())[y + i][x + j]);
+                            if (campo.getCampo()[y + 3][x + j] == "*" || campo.getCampo()[y + 4][x + j] == "*")
                             {
                                 vuoto = false;
                                 System.out.println("Sotto c'è qualcosa");
@@ -156,24 +196,23 @@ public class Tetris
                 }
                 break;
             case "d":
-                if (y+5 < campo.getColonne())
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 3; j < 6; j++)
+                if (x+5 < campo.getColonne())
+                    for (int i = 0; i < 3; i++)
                     {
-                        if (campo.getCampo()[x+i][y+j] != " ")
+                        for (int j = 3; j < 6; j++)
                         {
-                            vuoto = false;
-                            System.out.println("PDF9.A des c'è qualcosa");
+                            if (campo.getCampo()[y + i][x + j] != " ")
+                            {
+                                vuoto = false;
+                                System.out.println("A des c'è qualcosa");
+                            }
                         }
                     }
-                }
                 break;
         }
-        System.out.println("vuoto è "+vuoto);
+        //System.out.println("vuoto è "+vuoto);
         if (!vuoto)
         {
-            // TODO: rimettere true
             arrivato = true;
         }
         return vuoto;
