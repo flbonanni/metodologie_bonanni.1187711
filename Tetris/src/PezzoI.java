@@ -14,3 +14,4 @@ public class PezzoI extends Pezzo
         setTetramino(a);
     }
 }
+

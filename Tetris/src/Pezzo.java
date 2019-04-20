@@ -16,10 +16,11 @@ public abstract class Pezzo
     public void setTetramino(String[][] a) { tetramino = a; }
     public String[][] getTetramino() { return tetramino; }
 
+    // TODO: eliminare la funzione up?
+    public void up() { y--; }
     public void left() { x--; }
     public void right() { x++; }
     public void down() { y++; }
-
     public void rotate()
     {
         String[][] copy = new String[3][3];
@@ -28,7 +29,6 @@ public abstract class Pezzo
         {
             for (int j = 0; j < 3; j++)
             {
-                // System.out.println(i+" "+j+", "+j+" "+k);
                 copy[i][j] = tetramino[j][k];
             }
             k--;
@@ -36,6 +36,9 @@ public abstract class Pezzo
         tetramino = copy;
     }
 
+    /**
+     * stampa il pezzo
+     */
     public void stampa()
     {
         for (int i = 0; i < 3; i++)

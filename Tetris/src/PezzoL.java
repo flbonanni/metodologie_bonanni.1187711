@@ -13,4 +13,11 @@ public class PezzoL extends Pezzo
     {
         setTetramino(a);
     }
+
+    /*
+    public static void main(String[] args)
+    {
+        PezzoL l = new PezzoL();
+        System.out.println(l.getTetramino()[1][0]);
+    } */
 }
