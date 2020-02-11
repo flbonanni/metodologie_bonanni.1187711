@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@font-face 
+{
+	font-family: "roboto";
+	src: url("ROBOTO-REGULAR.TTF");
+}
+
+@font-face 
+{
+	font-family: "oswald";
+	src: url("OSWALD-REGULAR.TTF");
+}
+
+a 
+{
+	bottom: 0;
+	color: #1d749a;
+	margin-right: 45px;
+}
+
+body 
+{
+	background-image: url("images/background.png");
+	background-size: cover;
+	background-color: white;
+	font-family: roboto;
+	font-size: 15px;
+	margin-left: 350px;
+	margin-right: 350px;
+}
+
+div.links 
+{
+	bottom: 20;
+	float: right;
+	font-size: 20px;
+	left: 1020;
+	position: absolute;
+}
+
+element.style 
+{
+	margin-left: 24rem;
+}
+
+.form-control-description 
+{
+	color: #f97171;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	margin-left: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+.form-control-example 
+{
+	color: #1d749a;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: 60px;
+	margin-top: -20px;
+	text-align: center;
+	width: 100%;
+}
+
+.form-control-hint 
+{
+	font-style: italic;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.form-control-plaintext 
+{
+	margin-top: -20px;
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.form-control-radio-button 
+{
+	margin-right: 5px;
+	margin-left: 20px;
+}
+
+.form-control-word 
+{
+	color: #f97171;
+	display: inherit;
+	font-family: oswald;
+	font-size: 60px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.form-group-bottom 
+{
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+input.btn.btn-primary 
+{
+	background-color: #1d749a;
+	border-color: #1d749a;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+
+input.form-control.hit:valid 
+{
+	border: solid 1px green;
+	color: green;
+}
+
+input.form-control.hit:invalid 
+{
+	border: solid 1px red;
+	color: red;
+}
+
+textarea.form-control 
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
