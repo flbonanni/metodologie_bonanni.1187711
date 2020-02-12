@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"it.uniroma1.fabbricasemantica.data"},{"l":"it.uniroma1.fabbricasemantica.servlet"},{"l":"it.uniroma1.fabbricasemantica.servlet.service"},{"l":"it.uniroma1.fabbricasemantica.servlet.task"},{"l":"it.uniroma1.fabbricasemantica.servlet.user"},{"l":"it.uniroma1.fabbricasemantica.wordnet"}]
