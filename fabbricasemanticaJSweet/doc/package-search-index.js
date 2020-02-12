@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"it.uniroma1.fabbricasemanticaJSweet.builder"},{"l":"it.uniroma1.fabbricasemanticaJSweet.game"},{"l":"it.uniroma1.fabbricasemanticaJSweet.userpage"},{"l":"quickstart"}]
